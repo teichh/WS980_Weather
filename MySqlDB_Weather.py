@@ -27,7 +27,7 @@ def Spaltennamen_create(Namex: str, anz: int):
 class Weather_Johan211_DB():
     def __init__(self, Anzwerte: object) -> object:
         self.mydb = mysql.connector.connect(
-            host=db_config.HOST,
+            host=db_config.DB_HOST,
             user=db_config.DB_USER,
             password=db_config.DB_PASSWORD,
             database=db_config.DB_NAME,
