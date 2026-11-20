@@ -1,6 +1,9 @@
 import mysql.connector
 import os
 
+import db_config
+from db_config import DB_PORT
+
 
 # Generiere String fuer Create und Update Werte1 bis N
 def SQLWerte_Table(anz: object) -> object:
@@ -22,13 +25,13 @@ def Spaltennamen_create(Namex: str, anz: int):
 
 
 class Weather_Johan211_DB():
-    def __init__(self, Anzwerte: object, HOST: object, PORT: object) -> object:
+    def __init__(self, Anzwerte: object) -> object:
         self.mydb = mysql.connector.connect(
-            host=HOST,
-            user="Thomas",
-            password="caesar11",
-            database="WeatherJohan211",
-            port=PORT
+            host=db_config.HOST,
+            user=db_config.DB_USER,
+            password=db_config.DB_PASSWORD,
+            database=db_config.DB_NAME,
+            port=db_config.DB_PORT
         )
         self.AnzWerte = Anzwerte
         self.my_cursor = self.mydb.cursor()
