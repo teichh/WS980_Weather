@@ -103,28 +103,30 @@ class Weather_Johan211_DB():
         import platform
 
         if platform.system() == "Windows":
-            Outfile = r"C:\Users\Thomas\Downloads\weather.csv"
+            CSV_PATH = r"C:/Users/Thomas/Downloads/weather.csv"
+            CSV_PATH1 = r"C:/Users/Thomas/Downloads/weather1.csv"
         else:
-            Outfile = "/volume1/web/WS980_Weather/weather.csv"
+            CSV_PATH = "/volume1/web/WS980_Weather/weather.csv"
+            CSV_PATH1 = "/volume1/web/WS980_Weather/weather1.csv"
 
-        #Outfile = "C:/Users/Thomas/Downloads/weather.csv"
-        if os.path.exists(Outfile): os.remove(Outfile)
+        if os.path.exists(CSV_PATH): os.remove(CSV_PATH)
+        if os.path.exists(CSV_PATH1): os.remove(CSV_PATH1)
 
-        CsvSql = """
+        CsvSql = f"""
                 SELECT * FROM Messungen 
-                INTO OUTFILE 'C:/Users/Thomas/Downloads/weather.csv'
+                INTO OUTFILE '{CSV_PATH}'
                 FIELDS ENCLOSED BY '"' 
                 TERMINATED BY ';'
                 ESCAPED BY '"'
-                LINES TERMINATED BY '\n';
+                LINES TERMINATED BY '\\n';
                 """
         self.my_cursor.execute(CsvSql)
 #
 #       Dezimalpunkt durch Komma ersetzen
 #
-        f1 = open(Outfile, "r")
-        CsvFile = "C:/Users/Thomas/Downloads/weather1.csv"
-        f2 = open(CsvFile,"w")
+        f1 = open(CSV_PATH, "r")
+        #CsvFile = "C:/Users/Thomas/Downloads/weather1.csv"
+        f2 = open(CSV_PATH1,"w")
         for line in f1:
             f2.write(line.replace(".", ","))
         f1.close()
