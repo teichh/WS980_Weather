@@ -6,8 +6,8 @@ import WS980_Weather
 from MySqlDB_Weather import Weather_Johan211_DB
 from WS980_Weather import Station_Request
 
-locale.setlocale(locale.LC_ALL, "de_DE")
-locale.setlocale(locale.LC_NUMERIC, "de_DE")
+locale.setlocale(locale.LC_ALL, "de_DE.utf8")
+locale.setlocale(locale.LC_NUMERIC, "de_DE.utf8")
 
 # Abfrage der Wetterstation
 WerteAkt = bytes(b'\xff\xff\x0b\x00\x06\x04\x04\x19')

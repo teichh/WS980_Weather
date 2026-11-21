@@ -1,8 +1,5 @@
 import mysql.connector
-import os
-
 import db_config
-from db_config import DB_PORT
 
 
 # Generiere String fuer Create und Update Werte1 bis N
@@ -102,7 +99,15 @@ class Weather_Johan211_DB():
     def Export_Csv(self):
         self.my_cursor = self.mydb.cursor()
 
-        Outfile = "C:/Users/Thomas/Downloads/weather.csv"
+        import os
+        import platform
+
+        if platform.system() == "Windows":
+            Outfile = r"C:\Users\Thomas\Downloads\weather.csv"
+        else:
+            Outfile = "/volume1/web/WS980_Weather/weather.csv"
+
+        #Outfile = "C:/Users/Thomas/Downloads/weather.csv"
         if os.path.exists(Outfile): os.remove(Outfile)
 
         CsvSql = """
