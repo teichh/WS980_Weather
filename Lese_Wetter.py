@@ -29,7 +29,10 @@ Weather.Create_Table()
 Weather.INSERT_Table(AlleWerte)
 
 # Abfrage aus DB
-Weather.SELECT_Table(1, 5)
-print(Weather.myresult)
+#Weather.SELECT_Table(1, 5)
+#print(Weather.myresult)
 
-Weather.Export_Csv()
+#Weather.Export_Csv()
+
+# MQTT Broker
+

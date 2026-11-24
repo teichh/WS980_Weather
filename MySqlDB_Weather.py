@@ -106,8 +106,8 @@ class Weather_Johan211_DB():
             CSV_PATH = r"C:/Users/Thomas/Downloads/weather.csv"
             CSV_PATH1 = r"C:/Users/Thomas/Downloads/weather1.csv"
         else:
-            CSV_PATH = "/volume1/web/WS980_Weather/weather.csv"
-            CSV_PATH1 = "/volume1/web/WS980_Weather/weather1.csv"
+            CSV_PATH  = "/tmp/weather.csv"
+            CSV_PATH1 = "/tmp/weather1.csv"
 
         if os.path.exists(CSV_PATH): os.remove(CSV_PATH)
         if os.path.exists(CSV_PATH1): os.remove(CSV_PATH1)
