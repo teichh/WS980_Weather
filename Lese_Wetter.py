@@ -6,6 +6,8 @@ import WS980_Weather
 from MySqlDB_Weather import Weather_Johan211_DB
 from WS980_Weather import Station_Request
 
+from MQTT_Weather import MQTT_Werte
+
 locale.setlocale(locale.LC_ALL, "de_DE.utf8")
 locale.setlocale(locale.LC_NUMERIC, "de_DE.utf8")
 
@@ -34,5 +36,5 @@ Weather.INSERT_Table(AlleWerte)
 
 #Weather.Export_Csv()
 
-# MQTT Broker
-
+# MQTT Werte veröffentlichen
+MQTT_Werte(AlleWerte)
